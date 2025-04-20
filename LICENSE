@@ -1,16 +1,34 @@
 MIT License
 
-Copyright (c) 2025 KHALED EISSA
+Copyright (c) 2025 KHALED EISSA, SOHILA ALNAHAS, SARA AHMED, NAGHAM EL NOSHEKATY
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
+of this software (Health Center Database System) and associated documentation files, 
+to deal in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. The above copyright notice and this permission notice shall be included in all
+   copies or substantial portions of the Software.
+
+2. Attribution Requirement:
+   - Any derivative work must prominently display:
+     * Original authors' names (listed above)
+     * Link to original repository
+     * This license file unchanged
+
+3. Database-Specific Provisions:
+   - Sample medical data is synthetic and for demonstration purposes only
+   - NOT approved for use with real patient data without HIPAA-compliance modifications
+   - Not certified for clinical use - intended for educational purposes only
+
+4. Liability Limitations:
+   - This is a database schema design, not medical advice
+   - Authors are not liable for:
+     * Data loss or system damage
+     * Medical decisions made using this system
+     * Regulatory compliance of implementations
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -19,3 +37,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+For inquiries about commercial use or collaboration, contact: [your-email@example.com]
