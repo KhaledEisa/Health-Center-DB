@@ -1,0 +1,143 @@
+select a.DateTimeofapp,p.fn,p.ln from patient p join appointement a on p.patientid=a.appid where p.fn='John' and p.ln='Smith'
+
+DATETIMEOFAPP             FN     LN      
+------------------------- ------ ------- 
+11/25/2023, 11:30:00 AM   John   Smith   
+
+Elapsed: 00:00:00.000
+1 rows selected. 
+
+
+select c.name,l.typeoftest from labtest l join clinicaldept c on l.id=c.id
+
+NAME               TYPEOFTEST             
+------------------ ---------------------- 
+General Medicine   Blood test             
+Pediatrics         Allergy panel          
+Cardiology         Lung function test     
+Oncology           Hemoglobin A1C         
+Neurology          Complete Blood Count   
+
+Elapsed: 00:00:00.009
+5 rows selected. 
+
+select r.fn,r.ln,a.appid from receptionist r join appointement a on r.id=a.appid where a.appid=1
+
+FN      LN    APPID 
+------- ----- ----- 
+Ahmed   Ali   1     
+
+Elapsed: 00:00:00.004
+1 rows selected. 
+
+SELECT md.id AS medicalrecord_id, md.dateofvisit, md.diagnosis, md.treatmentplan,
+       d.doctorid, d.fn AS doctor_firstname, d.ln AS doctor_lastname, d.speciality
+FROM medicalrecord md 
+JOIN doctor d ON md.doctorid = d.doctorid 
+WHERE d.fn = 'John' AND d.ln = 'Smith';
+
+MEDICALRECORD_ID DATEOFVISIT               DIAGNOSIS         TREATMENTPLAN                DOCTORID DOCTOR_FIRSTNAME DOCTOR_LASTNAME SPECIALITY   
+---------------- ------------------------- ----------------- ---------------------------- -------- ---------------- --------------- ------------ 
+1                12/05/2023, 02:00:00 AM   Sinus infection   Antibiotics, decongestants   1        John             Smith           Cardiology   
+4                12/16/2023, 02:00:00 AM   Type 2 Diabetes   Metformin, diet control      1        John             Smith           Cardiology   
+
+Elapsed: 00:00:00.007
+2 rows selected. 
+
+
+select* from medication where purpose like '%Pain relief%';
+
+ID NAME        DOSAGE FREQUENCY PURPOSE       SIDEEFFECS                 
+-- ----------- ------ --------- ------------- -------------------------- 
+2  Ibuprofen   200    3         Pain relief   Upset stomach, heartburn   
+3  Aspirin     325    2         Pain relief   Upset stomach, bleeding    
+
+Elapsed: 00:00:00.007
+2 rows selected. 
+
+
+
+select count(patientid) ,c.name from patient p join clinicaldept c on p.patientid=c.id group by c.name;
+
+COUNT(PATIENTID) NAME               
+---------------- ------------------ 
+1                General Medicine   
+1                Pediatrics         
+1                Cardiology         
+1                Oncology           
+1                Neurology          
+
+Elapsed: 00:00:00.013
+5 rows selected. 
+
+
+
+SELECT 
+    d.doctorid, d.fn AS doctor_firstname, d.ln AS doctor_lastname, d.speciality,
+    a.appid, a.patientid, a.DateTimeofapp, a.Location, a.ReasonofApp, a.dept_no
+FROM doctor d
+JOIN appointement a ON d.doctorid = a.doctorid
+WHERE a.DateTimeofapp = TO_DATE('11/25/2023 09:30:00 AM', 'MM/DD/YYYY HH:MI:SS AM');
+
+
+DOCTORID DOCTOR_FIRSTNAME DOCTOR_LASTNAME SPECIALITY   APPID PATIENTID DATETIMEOFAPP             LOCATION      REASONOFAPP      DEPT_NO 
+-------- ---------------- --------------- ------------ ----- --------- ------------------------- ------------- ---------------- ------- 
+1        John             Smith           Cardiology   1     1         11/25/2023, 11:30:00 AM   Exam Room 3   Annual Checkup   1       
+
+Elapsed: 00:00:00.008
+1 rows selected. 
+
+
+
+SELECT 
+    n.nurseid, n.fn AS nurse_firstname, n.ln AS nurse_lastname,
+    p.fn AS patient_firstname, p.ln AS patient_lastname, p.dob
+FROM nurse n 
+JOIN patient p ON n.patientid = p.patientid 
+WHERE p.fn = 'Robert';
+
+
+NURSEID NURSE_FIRSTNAME NURSE_LASTNAME PATIENT_FIRSTNAME PATIENT_LASTNAME DOB                       
+------- --------------- -------------- ----------------- ---------------- ------------------------- 
+3       Maria           Rodriguez      Robert            Williams         03/09/2003, 02:00:00 AM   
+
+Elapsed: 00:00:00.013
+1 rows selected. 
+
+
+
+select * from patient where medications like '%Losartan%';
+
+PATIENTID FN       MN        LN         DOB                       GENDER ADDRESS                         PHONENO    EMAIL                       EMERGENCYCONTACT INSURANCEINFO MEDICATIONS         
+--------- -------- --------- ---------- ------------------------- ------ ------------------------------- ---------- --------------------------- ---------------- ------------- ------------------- 
+3         Robert   Michael   Williams   03/09/2003, 02:00:00 AM   M      789 Elm St, Anytown, CA 12345   1112223333 robert.williams@email.com   8889991234       Aetna         Losartan, Aspirin   
+
+Elapsed: 00:00:00.001
+1 rows selected. 
+
+
+
+select * from medicalrecord m natural join patient p where p.fn ='David'and p.ln='Miller';
+
+PATIENTID ID DOCTORID DATEOFVISIT               DIAGNOSIS                TREATMENTPLAN        FN      MN        LN       DOB                       GENDER ADDRESS                           PHONENO    EMAIL                    EMERGENCYCONTACT INSURANCEINFO MEDICATIONS             
+--------- -- -------- ------------------------- ------------------------ -------------------- ------- --------- -------- ------------------------- ------ --------------------------------- ---------- ------------------------ ---------------- ------------- ----------------------- 
+5         5  2        12/21/2023, 02:00:00 AM   Childhood vaccinations   MMR, DTaP vaccines   David   William   Miller   12/30/1988, 02:00:00 AM   M      654 Maple Dr, Anytown, CA 12345   4445556666 david.miller@email.com   7778889999       Cigna         Metoprolol, Albuterol   
+
+Elapsed: 00:00:00.001
+1 rows selected. 
+
+
+
+select * from patient where insuranceinfo is not null;
+
+PATIENTID FN       MN          LN         DOB                       GENDER ADDRESS                           PHONENO    EMAIL                       EMERGENCYCONTACT INSURANCEINFO            MEDICATIONS                   
+--------- -------- ----------- ---------- ------------------------- ------ --------------------------------- ---------- --------------------------- ---------------- ------------------------ ----------------------------- 
+1         John     David       Smith      05/23/1980, 03:00:00 AM   M      123 Main St, Anytown, CA 12345    1234567890 john.smith@email.com        9876543210       Blue Cross Blue Shield   Lisinopril, Metformin         
+2         Mary     Elizabeth   Johnson    10/17/1991, 02:00:00 AM   F      456 Oak Ave, Anytown, CA 12345    9876543210 mary.johnson@email.com      1234567890       UnitedHealthcare         Ibuprofen, Omeprazole         
+3         Robert   Michael     Williams   03/09/2003, 02:00:00 AM   M      789 Elm St, Anytown, CA 12345     1112223333 robert.williams@email.com   8889991234       Aetna                    Losartan, Aspirin             
+4         Sarah    Anne        Brown      07/14/1975, 03:00:00 AM   F      321 Pine Rd, Anytown, CA 12345    5551234567 sarah.brown@email.com       5559876543       Kaiser Permanente        Atorvastatin, Levothyroxine   
+5         David    William     Miller     12/30/1988, 02:00:00 AM   M      654 Maple Dr, Anytown, CA 12345   4445556666 david.miller@email.com      7778889999       Cigna                    Metoprolol, Albuterol         
+
+Elapsed: 00:00:00.006
+5 rows selected. 
+
