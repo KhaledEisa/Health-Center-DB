@@ -19,7 +19,7 @@ INSERT INTO patient VALUES (
   'MediCare Plus',
   'Atorvastatin, Vitamin D'
 );
-
+`````
 ### 2. Scheduling an Appointment
 ```` sql
 INSERT INTO appointment VALUES (
@@ -32,7 +32,7 @@ INSERT INTO appointment VALUES (
   1,
   'Scheduled'
 );
-
+````
 ### 3. Find All Appointments for a Patient
 ```` sql
 SELECT a.appid, a.DateTimeofapp, d.fn || ' ' || d.ln AS doctor_name
@@ -41,7 +41,7 @@ JOIN doctor d ON a.doctorid = d.doctorid
 WHERE a.patientid = 15
 ORDER BY a.DateTimeofapp DESC;
 
-
+````
 ### 4. View Patient Medical History
 ```` sql
 SELECT mr.dateofvisit, mr.diagnosis, mr.treatmentplan,
@@ -49,7 +49,7 @@ SELECT mr.dateofvisit, mr.diagnosis, mr.treatmentplan,
 FROM medicalrecord mr
 JOIN doctor d ON mr.doctorid = d.doctorid
 WHERE mr.patientid = 15;
-
+````
 ### 5. Ordering Lab Tests
 ```` sql
 INSERT INTO labtest VALUES (
@@ -62,14 +62,14 @@ INSERT INTO labtest VALUES (
   15,
   'Pending'
 );
-
+````
 ### 6. Updating Treatment Plan
 ```` sql
 UPDATE medicalrecord
 SET treatmentplan = 'Amoxicillin 500mg TID, Rest for 5 days',
     notes = 'Patient shows signs of bacterial infection'
 WHERE id = 15;
-
+````
 ### 7. Daily Appointment Schedule
 ```` sql
 SELECT
@@ -83,7 +83,7 @@ JOIN patient p ON a.patientid = p.patientid
 JOIN doctor d ON a.doctorid = d.doctorid
 WHERE TRUNC(a.DateTimeofapp) = TRUNC(SYSDATE)
 ORDER BY a.DateTimeofapp;
-
+````
 ### 8. Medication Usage Report
 ```` sql
 SELECT
@@ -104,7 +104,7 @@ LEFT JOIN clinicaldept c ON (
 ) = c.id
 GROUP BY m.name, c.name
 ORDER BY patient_count DESC;
-
+````
 ### 9. Retrieve Critical Patient Information
 ```` sql
 SELECT
@@ -121,5 +121,5 @@ WHERE p.patientid = 15
 ORDER BY mr.dateofvisit DESC
 FETCH FIRST 1 ROW ONLY;
 
-
+````
 `````
