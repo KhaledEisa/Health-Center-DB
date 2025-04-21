@@ -1,0 +1,110 @@
+APPID PATIENTID DOCTORID DATETIMEOFAPP             LOCATION      REASONOFAPP              DEPT_NO 
+----- --------- -------- ------------------------- ------------- ------------------------ ------- 
+1     1         1        11/25/2023, 11:30:00 AM   Exam Room 3   Annual Checkup           1       
+2     2         2        12/02/2023, 04:15:00 PM   Telehealth    Follow-up Consultation   2       
+3     3         3        12/10/2023, 12:00:00 PM   Exam Room 2   Blood Pressure Check     3       
+4     4         1        12/15/2023, 01:30:00 PM   Exam Room 1   Diabetes Management      1       
+5     5         2        12/20/2023, 03:45:00 PM   Exam Room 4   Pediatric Vaccination    2       
+
+Elapsed: 00:00:00.005
+5 rows selected. 
+
+ID NAME               LOCATION                 TYPEOFCLINIC DEPT_HEAD           PHONE_NO  EMAIL                        
+-- ------------------ ------------------------ ------------ ------------------- --------- ---------------------------- 
+1  General Medicine   Main Building, Floor 2   Outpatient   Dr. Ahmed Mohamed   102345678 ahmed.mohamed@gmail.com      
+2  Pediatrics         West Wing, Floor 3       Inpatient    Dr. Sarah Samir     119876543 sarah.samir@hotmail.com      
+3  Cardiology         East Wing, Floor 5       Outpatient   Dr. Omar Hassan     123579102 omar.hassan@yahoo.com        
+4  Oncology           North Wing, Floor 4      Both         Dr. Peter Johnson   134567890 peter.johnson@hospital.com   
+5  Neurology          South Wing, Floor 6      Outpatient   Dr. Emily Wilson    145678901 emily.wilson@hospital.com    
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+DOCTORID FN       MN          LN         SPECIALITY        LICENSE_NO SALARY PH_NO      EMAIL                      EMERGENCYCONTACT CLINICALID 
+-------- -------- ----------- ---------- ----------------- ---------- ------ ---------- -------------------------- ---------------- ---------- 
+5        Robert   Michael     Brown      General Surgery   567890     170000 7778889999 robert.brown@email.com     1112223333       5          
+1        John     David       Smith      Cardiology        123456     150000 1234567890 john.smith@email.com       9876543210       1          
+2        Jane     Marie       Doe        Pediatrics        654321     120000 9876543210 jane.doe@email.com         1234567890       2          
+3        Peter    James       Johnson    Oncology          987654     180000 5551234567 peter.johnson@email.com    8889991234       3          
+4        Sarah    Elizabeth   Williams   Neurology         456789     160000 6667778888 sarah.williams@email.com   9998887777       4          
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+ID FN                 LN                 PH_NO       EMAIL                        COVERAGEDETAILS                                                           PATIENTID 
+-- ------------------ ------------------ ----------- ---------------------------- ------------------------------------------------------------------------- --------- 
+1  Blue               Cross              18004141845 customerservice@bcbs.com     80% coverage for doctor visits, 70% for prescriptions, $2000 deductible   1         
+2  UnitedHealthcare   Customer Service   18669964546 customerservice@uhc.com      75% coverage for doctor visits, 80% for prescriptions, $1500 deductible   2         
+3  Aetna              Customer Service   18008723862 customerservice@aetna.com    60% coverage for doctor visits, 85% for prescriptions, $3000 deductible   3         
+4  Kaiser             Permanente         18007779100 member.services@kp.org       90% coverage for doctor visits, 80% for prescriptions, $1000 deductible   4         
+5  Cigna              HealthCare         18009977555 customer.service@cigna.com   70% coverage for doctor visits, 75% for prescriptions, $2500 deductible   5         
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+ID PATIENTID DOCTORID DATEOFTEST                TYPEOFTEST             RESULTOFTEST              MEDICALRECORDID 
+-- --------- -------- ------------------------- ---------------------- ------------------------- --------------- 
+1  1         1        12/06/2023, 02:00:00 AM   Blood test             Normal results            1               
+2  2         2        11/19/2023, 02:00:00 AM   Allergy panel          Positive for dust mites   2               
+3  3         3        10/26/2023, 03:00:00 AM   Lung function test     Mild airway obstruction   3               
+4  4         1        12/16/2023, 02:00:00 AM   Hemoglobin A1C         Elevated at 7.2%          4               
+5  5         2        12/21/2023, 02:00:00 AM   Complete Blood Count   Normal range              5               
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+ID DOCTORID DATEOFVISIT               DIAGNOSIS                TREATMENTPLAN                 PATIENTID 
+-- -------- ------------------------- ------------------------ ----------------------------- --------- 
+1  1        12/05/2023, 02:00:00 AM   Sinus infection          Antibiotics, decongestants    1         
+2  2        11/18/2023, 02:00:00 AM   Allergic reaction        Antihistamines, steroids      2         
+3  3        10/25/2023, 03:00:00 AM   Asthma                   Inhaler, allergy medication   3         
+4  1        12/16/2023, 02:00:00 AM   Type 2 Diabetes          Metformin, diet control       4         
+5  2        12/21/2023, 02:00:00 AM   Childhood vaccinations   MMR, DTaP vaccines            5         
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+ID NAME           DOSAGE FREQUENCY PURPOSE            SIDEEFFECS                 
+-- -------------- ------ --------- ------------------ -------------------------- 
+1  Lisinopril     10     1         Blood pressure     Dizziness, cough           
+2  Ibuprofen      200    3         Pain relief        Upset stomach, heartburn   
+3  Aspirin        325    2         Pain relief        Upset stomach, bleeding    
+4  Atorvastatin   20     1         Cholesterol        Muscle pain, nausea        
+5  Metoprolol     50     2         Heart conditions   Fatigue, dizziness         
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+NURSEID FN         MN         LN          LICENSENO DEPT_NO SALARY PH_NO      EMAIL                      AVAILABILITY DOCTOR_ID LICENSE_NO PATIENTID 
+------- ---------- ---------- ----------- --------- ------- ------ ---------- -------------------------- ------------ --------- ---------- --------- 
+1       Emily      Anne       Smith       12345     1       75000  1234567890 e.smith@hospital.com       Available    1         12345      1         
+2       Michael    James      Johnson     23456     2       80000  9876543210 m.johnson@hospital.com     On Leave     2         23456      2         
+3       Maria      Isabella   Rodriguez   34567     3       68000  1112223333 m.rodriguez@hospital.com   Available    3         34567      3         
+4       Jennifer   Lynn       Wilson      45678     4       72000  2223334444 j.wilson@hospital.com      Available    4         45678      4         
+5       David      Robert     Thompson    56789     5       78000  3334445555 d.thompson@hospital.com    On Leave     5         56789      5         
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+PATIENTID FN       MN          LN         DOB                       GENDER ADDRESS                           PHONENO    EMAIL                       EMERGENCYCONTACT INSURANCEINFO            MEDICATIONS                   
+--------- -------- ----------- ---------- ------------------------- ------ --------------------------------- ---------- --------------------------- ---------------- ------------------------ ----------------------------- 
+1         John     David       Smith      05/23/1980, 03:00:00 AM   M      123 Main St, Anytown, CA 12345    1234567890 john.smith@email.com        9876543210       Blue Cross Blue Shield   Lisinopril, Metformin         
+2         Mary     Elizabeth   Johnson    10/17/1991, 02:00:00 AM   F      456 Oak Ave, Anytown, CA 12345    9876543210 mary.johnson@email.com      1234567890       UnitedHealthcare         Ibuprofen, Omeprazole         
+3         Robert   Michael     Williams   03/09/2003, 02:00:00 AM   M      789 Elm St, Anytown, CA 12345     1112223333 robert.williams@email.com   8889991234       Aetna                    Losartan, Aspirin             
+4         Sarah    Anne        Brown      07/14/1975, 03:00:00 AM   F      321 Pine Rd, Anytown, CA 12345    5551234567 sarah.brown@email.com       5559876543       Kaiser Permanente        Atorvastatin, Levothyroxine   
+5         David    William     Miller     12/30/1988, 02:00:00 AM   M      654 Maple Dr, Anytown, CA 12345   4445556666 david.miller@email.com      7778889999       Cigna                    Metoprolol, Albuterol         
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
+ID FN        MN        LN        GENDER ADDRESS                       PH_NO     EMAIL                       
+-- --------- --------- --------- ------ ----------------------------- --------- --------------------------- 
+1  Ahmed     Sayed     Ali       M      123 Main Street, Cairo        101234567 ahmed.ali@gmail.com         
+2  Mariam    Ahmed     Hassan    F      456 Elm Street, Giza          119876543 mariam.hassan@hotmail.com   
+3  Omar      Mohamed   Ibrahim   M      789 Park Avenue, Alexandria   125648972 omar.ibrahim@yahoo.com      
+4  Fatima    Mahmoud   Khalil    F      321 Oak Lane, Luxor           132456789 fatima.khalil@email.com     
+5  Youssef   Hassan    Farid     M      654 Palm Street, Aswan        147258369 youssef.farid@email.com     
+
+Elapsed: 00:00:00.001
+5 rows selected. 
+
